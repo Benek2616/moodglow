@@ -1,0 +1,258 @@
+:root {
+  --bg: #0f0f12;
+  --card: #1a1a20;
+  --text: #f4f4f5;
+  --muted: #a1a1aa;
+  --border: #2a2a32;
+  --primary: #e879f9;
+  --radius: 18px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+.app {
+  max-width: 440px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 3rem;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 1.6rem;
+}
+
+header h1 {
+  font-size: 1.7rem;
+  background: linear-gradient(90deg, #e879f9, #c084fc, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+header p {
+  color: var(--muted);
+  margin-top: 0.3rem;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.3rem;
+  margin-bottom: 1.1rem;
+}
+
+.date {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 1.1rem;
+  text-align: center;
+}
+
+.section-label {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.moods {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.4rem;
+  margin-bottom: 1.3rem;
+}
+
+.mood {
+  flex: 1;
+  aspect-ratio: 1;
+  border: 2px solid var(--border);
+  background: transparent;
+  border-radius: 14px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.mood:hover {
+  transform: scale(1.08);
+}
+
+.mood.selected {
+  border-color: var(--primary);
+  background: rgba(232, 121, 249, 0.12);
+  transform: scale(1.08);
+}
+
+.energy {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.3rem;
+}
+
+.energy-btn {
+  flex: 1 1 30%;
+  padding: 0.5rem 0.3rem;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  border-radius: 10px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.15s;
+}
+
+.energy-btn.selected {
+  background: rgba(232, 121, 249, 0.15);
+  border-color: var(--primary);
+  color: #f0abfc;
+  font-weight: 500;
+}
+
+textarea {
+  width: 100%;
+  background: #0f0f12;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0.8rem;
+  color: var(--text);
+  font-size: 0.9rem;
+  font-family: inherit;
+  resize: none;
+  margin-bottom: 1.1rem;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.primary {
+  width: 100%;
+  padding: 0.9rem;
+  background: linear-gradient(135deg, #e879f9, #c084fc);
+  color: #1a1a20;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.15s;
+}
+
+.primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px -6px rgba(232, 121, 249, 0.4);
+}
+
+.primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.card-header h2 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.text-btn {
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-size: 0.8rem;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.text-btn:hover {
+  color: #f87171;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+}
+
+.day {
+  aspect-ratio: 1;
+  border-radius: 10px;
+  background: #0f0f12;
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  color: var(--muted);
+  cursor: default;
+  position: relative;
+}
+
+.day.has-mood {
+  border: none;
+  font-size: 1rem;
+}
+
+.day.mood-1 { background: #3f1a1a; }
+.day.mood-2 { background: #3f2a1a; }
+.day.mood-3 { background: #2a2a1a; }
+.day.mood-4 { background: #1a2a1a; }
+.day.mood-5 { background: #1a2a2a; }
+
+.day.today {
+  box-shadow: 0 0 0 2px var(--primary);
+}
+
+.legend {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.8rem;
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+.insight h2 {
+  font-size: 1rem;
+  margin-bottom: 0.8rem;
+}
+
+#insights {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+#insights strong {
+  color: #e9d5ff;
+}
+
+footer {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.78rem;
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 380px) {
+  .mood { font-size: 1.3rem; }
+  .energy-btn { font-size: 0.7rem; }
+}

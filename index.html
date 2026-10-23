@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MoodGlow – Tracker nastroju</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>✨ MoodGlow</h1>
+      <p>Jak się dziś czujesz?</p>
+    </header>
+
+    <!-- Today's entry -->
+    <section class="card" id="today-card">
+      <div class="date" id="today-date"></div>
+      
+      <label class="section-label">Nastrój</label>
+      <div class="moods" id="mood-select">
+        <button class="mood" data-mood="1" title="Bardzo źle">😞</button>
+        <button class="mood" data-mood="2" title="Słabo">😕</button>
+        <button class="mood" data-mood="3" title="Neutralnie">😐</button>
+        <button class="mood" data-mood="4" title="Dobrze">🙂</button>
+        <button class="mood" data-mood="5" title="Świetnie">😄</button>
+      </div>
+
+      <label class="section-label">Energia</label>
+      <div class="energy" id="energy-select">
+        <button class="energy-btn" data-energy="1">Bardzo niska</button>
+        <button class="energy-btn" data-energy="2">Niska</button>
+        <button class="energy-btn" data-energy="3">Średnia</button>
+        <button class="energy-btn" data-energy="4">Wysoka</button>
+        <button class="energy-btn" data-energy="5">Bardzo wysoka</button>
+      </div>
+
+      <label class="section-label">Krótka notatka (opcjonalnie)</label>
+      <textarea id="note" placeholder="Co wpłynęło na Twój dzień? Jedno zdanie wystarczy..." rows="2"></textarea>
+
+      <button id="save-btn" class="primary">Zapisz dzień</button>
+    </section>
+
+    <!-- Calendar / Grid -->
+    <section class="card">
+      <div class="card-header">
+        <h2>Ostatnie 28 dni</h2>
+        <button id="clear-btn" class="text-btn">Wyczyść</button>
+      </div>
+      <div class="grid" id="mood-grid"></div>
+      <div class="legend">
+        <span>😞</span><span>😕</span><span>😐</span><span>🙂</span><span>😄</span>
+      </div>
+    </section>
+
+    <!-- Insights -->
+    <section class="card insight" id="insight-card">
+      <h2>Podsumowanie</h2>
+      <div id="insights"></div>
+    </section>
+
+    <footer>Twoje dane zostają tylko w tej przeglądarce</footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
